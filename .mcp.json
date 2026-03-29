@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gps": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:8101/mcp"]
+    },
+    "wingfoil": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:8102/mcp"]
+    }
+  }
+}

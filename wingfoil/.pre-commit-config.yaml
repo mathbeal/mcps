@@ -1,0 +1,59 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+        files: ^wingfoil/
+      - id: end-of-file-fixer
+        files: ^wingfoil/
+      - id: trailing-whitespace
+        files: ^wingfoil/
+      - id: check-added-large-files
+        files: ^wingfoil/
+
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: isort
+        language: system
+        types: [python]
+        files: ^wingfoil/
+        args: [--profile=black, --line-length=100]
+
+      - id: black
+        name: black
+        entry: black
+        language: system
+        types: [python]
+        files: ^wingfoil/
+        args: [--line-length=100]
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
+        files: ^wingfoil/
+        args: [--ignore-missing-imports]
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        files: ^wingfoil/
+
+      - id: xenon
+        name: xenon (complexity ≤ D)
+        entry: bash -c 'cd wingfoil && uv run xenon --max-absolute D --max-modules A --max-average A "$@"' --
+        language: system
+        types: [python]
+        files: ^wingfoil/
+
+      - id: pytest
+        name: pytest
+        entry: bash -c 'cd wingfoil && uv run pytest'
+        language: system
+        pass_filenames: false
+        always_run: true

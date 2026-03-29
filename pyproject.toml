@@ -1,0 +1,46 @@
+[project]
+name = "mcps"
+version = "0.1.0"
+description = "Personal MCP server monorepo"
+requires-python = ">=3.14"
+
+[dependency-groups]
+dev = [
+  "ruff>=0.9",
+  "black>=25.0",
+  "mypy>=1.14",
+  "vulture>=2.13",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+
+[tool.black]
+line-length = 100
+target-version = ["py314"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov --cov-fail-under=100"
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = ["*/tests/*", "*/.venv/*"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.vulture]
+min_confidence = 80
+paths = ["gps", "wingfoil"]
+exclude = ["*/.venv/*", "*/tests/*"]

@@ -1,0 +1,44 @@
+[project]
+name = "mcp-wingfoil"
+version = "0.1.0"
+description = "MCP server — French wingfoil spots, raw data for Claude to reason about"
+requires-python = ">=3.14"
+dependencies = [
+    "fastmcp==3.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.0.2",
+    "pytest-cov==7.1.0",
+    "black==26.3.1",
+    "isort==8.0.1",
+    "mypy==1.19.1",
+    "pylint==4.0.5",
+    "pre-commit==4.5.1",
+    "radon==6.0.1",
+    "xenon==0.9.3",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py314"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+strict = true
+python_version = "3.14"
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=. --cov-report=term-missing --cov-fail-under=100"
+
+[tool.coverage.run]
+omit = ["generate_data.py", "tests/*"]
+source = ["."]
