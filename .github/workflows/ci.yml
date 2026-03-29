@@ -5,10 +5,12 @@ on:
     paths:
       - "gps/**"
       - "wingfoil/**"
+      - ".github/workflows/ci.yml"
   pull_request:
     paths:
       - "gps/**"
       - "wingfoil/**"
+      - ".github/workflows/ci.yml"
 
 jobs:
   test-py314:
