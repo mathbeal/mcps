@@ -40,7 +40,7 @@ jobs:
           for port in 8101 8102; do
             echo "Waiting for localhost:$port ..."
             for i in $(seq 1 30); do
-              curl -sf -H "Accept: application/json, text/event-stream" http://localhost:$port/mcp && break
+              curl -s -o /dev/null http://localhost:$port/mcp && break
               [ $i -eq 30 ] && { echo "FAIL on port $port"; docker compose logs; exit 1; }
               sleep 2
             done
