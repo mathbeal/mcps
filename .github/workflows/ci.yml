@@ -21,7 +21,7 @@ jobs:
       run:
         working-directory: ${{ matrix.server }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v4
         with:
           python-version: "3.14"
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-py314]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: docker compose up -d --build
       - run: sleep 5
       - run: |
@@ -55,7 +55,7 @@ jobs:
       run:
         working-directory: ${{ matrix.server }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: astral-sh/setup-uv@v4
         with:
           python-version: "3.15"
