@@ -1,0 +1,59 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+        files: ^gps/
+      - id: end-of-file-fixer
+        files: ^gps/
+      - id: trailing-whitespace
+        files: ^gps/
+      - id: check-added-large-files
+        files: ^gps/
+
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        entry: isort
+        language: system
+        types: [python]
+        files: ^gps/
+        args: [--profile=black, --line-length=100]
+
+      - id: black
+        name: black
+        entry: black
+        language: system
+        types: [python]
+        files: ^gps/
+        args: [--line-length=100]
+
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        types: [python]
+        files: ^gps/
+        args: [--ignore-missing-imports]
+
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        files: ^gps/
+
+      - id: xenon
+        name: xenon (complexity ≤ D)
+        entry: bash -c 'cd gps && uv run xenon --max-absolute D --max-modules A --max-average A "$@"' --
+        language: system
+        types: [python]
+        files: ^gps/
+
+      - id: pytest
+        name: pytest
+        entry: bash -c 'cd gps && uv run pytest'
+        language: system
+        pass_filenames: false
+        always_run: true

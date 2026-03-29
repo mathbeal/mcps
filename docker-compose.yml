@@ -1,0 +1,26 @@
+services:
+  gps:
+    build:
+      context: ./gps
+    ports:
+      - "8101:8101"
+    env_file:
+      - path: ./gps/.env
+        required: false
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "8101"
+    restart: unless-stopped
+
+  wingfoil:
+    build:
+      context: ./wingfoil
+    ports:
+      - "8102:8102"
+    env_file:
+      - path: ./wingfoil/.env
+        required: false
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "8102"
+    restart: unless-stopped
