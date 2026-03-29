@@ -22,7 +22,7 @@ jobs:
         working-directory: ${{ matrix.server }}
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v4
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.14"
       - run: uv sync --dev
@@ -56,7 +56,7 @@ jobs:
         working-directory: ${{ matrix.server }}
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v4
+      - uses: astral-sh/setup-uv@v7
         with:
           python-version: "3.15"
       - run: uv sync --dev
