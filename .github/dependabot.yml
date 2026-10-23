@@ -4,5 +4,71 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    labels:
-      - "dependencies"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
+  - package-ecosystem: "uv"
+    directory: "/gps"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
+  - package-ecosystem: "uv"
+    directory: "/wingfoil"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
+  - package-ecosystem: "docker"
+    directory: "/gps"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
+  - package-ecosystem: "docker"
+    directory: "/wingfoil"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 3
+    labels: ["dependencies"]
+    groups:
+      all:
+        patterns: ["*"]
