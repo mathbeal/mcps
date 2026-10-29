@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "MCP server — GPS distance calculations using the Haversine formula"
 requires-python = ">=3.14"
 dependencies = [
-    "fastmcp==3.1.1",
+    "fastmcp==3.4.10",
 ]
 
 [dependency-groups]
